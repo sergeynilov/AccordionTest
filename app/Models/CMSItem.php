@@ -18,6 +18,11 @@ class CMSItem extends Model implements HasMedia
     protected $primaryKey = 'id';
     public $timestamps = false;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable
         = [
             'title',
@@ -30,7 +35,7 @@ class CMSItem extends Model implements HasMedia
 
     public function scopeGetByKey($query, $key = null)
     {
-        if ( ! empty($key)) {
+        if (!empty($key)) {
             $query->where(with(new CMSItem)->getTable() . '.key', $key);
         }
 
@@ -48,7 +53,7 @@ class CMSItem extends Model implements HasMedia
 
     public function scopeGetById($query, $id)
     {
-        if ( ! empty($id)) {
+        if (!empty($id)) {
             if (is_array($id)) {
                 $query->whereIn(with(new CMSItem)->getTable() . '.id', $id);
             } else {
@@ -70,13 +75,17 @@ class CMSItem extends Model implements HasMedia
 
     public function scopeGetByPublished($query, $published = null)
     {
-        if ( ! isset($published) or strlen($published) == 0) {
+        if (!isset($published) or strlen($published) == 0) {
             return $query;
         }
 
         return $query->where(with(new CMSItem)->getTable() . '.published', $published);
     }
 
+    /**
+     * An model is owned by a user.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function author()
     {
         return $this->belongsTo('App\Models\User');
@@ -102,7 +111,7 @@ class CMSItem extends Model implements HasMedia
         ];
 
         foreach ($skipFieldsArray as $next_field) {
-            if ( ! empty($validationRulesArray[$next_field])) {
+            if (!empty($validationRulesArray[$next_field])) {
                 unset($validationRulesArray[$next_field]);
             }
         }

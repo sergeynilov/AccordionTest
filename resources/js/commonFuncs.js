@@ -4,11 +4,22 @@ import moment from 'moment-timezone'
 
 
 export function formatValue(value, rateDecimalNumbers) {
-    if (isEmpty( value ) ) return ''
-    if ( typeof value === 'string' ) {
+    if (isEmpty(value)) return ''
+    if (typeof value === 'string') {
         value = parseFloat(value)
     }
     return value.toFixed(rateDecimalNumbers)
+}
+
+
+export function getFileSizeAsString(fileSize) {
+    if (parseInt(fileSize) < 1024) {
+        return fileSize + 'b'
+    }
+    if (parseInt(fileSize) < 1024 * 1024) {
+        return Math.floor(fileSize / 1024) + 'kb'
+    }
+    return Math.floor(fileSize / (1024 * 1024)) + 'mb'
 }
 
 export function dateIntoDbFormat(d) {
@@ -26,7 +37,7 @@ export function showFlashMessage() {
 
     let flash_type = usePage().props.value.flash_type.message
 
-    if ( !isEmpty(flash_message)  ) {
+    if (!isEmpty(flash_message)) {
         if (flash_type == 'warning') {
             icon = 'warning'
         }

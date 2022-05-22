@@ -25,7 +25,7 @@ class UserTableSeeder extends Seeder
             'password'   => '11111111',
             'email_verified_at' => '2019-04-29 11:03:50',
             'created_at' => '2019-04-29 11:03:50',
-        ], true, [ACCESS_APP_SUPPORT_MANAGER_LABEL]);
+        ], true, [ACCESS_CLIENT_LABEL]);
 
         app(CreateNewUser::class)->create([
             'id'         => 2,
@@ -34,25 +34,16 @@ class UserTableSeeder extends Seeder
             'password'   => '11111111',
             'email_verified_at' => '2019-04-29 11:03:50',
             'created_at' => '2019-04-29 11:03:50',
-        ], true, [ACCESS_APP_CONTENT_EDITOR_LABEL]);
+        ], true, [ACCESS_CLIENT_LABEL]);
 
         app(CreateNewUser::class)->create([
             'id'         => 3,
-            'name'       => 'Admin',
-            'email'      => 'admin@site.com',
-            'password'   => '11111111',
-            'email_verified_at' => '2019-04-29 11:03:50',
-            'created_at' => '2019-04-29 11:03:50',
-        ], true, [ACCESS_APP_ADMIN_LABEL, ACCESS_APP_CONTENT_EDITOR_LABEL]);
-
-        app(CreateNewUser::class)->create([
-            'id'         => 4,
             'name'       => 'Manager',
             'email'      => 'manager@site.com',
             'password'   => '11111111',
             'email_verified_at' => '2019-04-29 11:03:50',
             'created_at' => '2019-04-29 11:03:50',
-        ], true, [ACCESS_APP_SUPPORT_MANAGER_LABEL, ACCESS_APP_CONTENT_EDITOR_LABEL]);
+        ], true, [ACCESS_MANAGER_LABEL]);
 
 
     }

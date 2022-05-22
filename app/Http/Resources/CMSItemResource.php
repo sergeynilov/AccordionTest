@@ -37,7 +37,7 @@ class CMSItemResource extends JsonResource
         $CMSItemImage = [];
         $CMSItemMedia = $this->getFirstMedia(config('app.media_app_name'));
 
-        if ( ! empty($CMSItemMedia) and File::exists($CMSItemMedia->getPath())) {
+        if (!empty($CMSItemMedia) and File::exists($CMSItemMedia->getPath())) {
             $CMSItemImage['url']       = $CMSItemMedia->getUrl();
             $imageInstance             = Image::load($CMSItemMedia->getUrl());
             $CMSItemImage['width']     = $imageInstance->getWidth();

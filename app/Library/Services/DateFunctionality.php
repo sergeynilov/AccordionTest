@@ -12,7 +12,7 @@ class DateFunctionality implements DateFunctionalityServiceInterface
     private static $datetime_numbers_format = 'Y-m-d H:i';
 
     private static $date_astext_format = 'j F, Y';
-    private static $datetime_astext_format = 'j F, Y g:i:s A';
+    private static $datetime_astext_format = 'j F, Y g:i A';
 
     public function getFormattedTime($time = ''):string
     {

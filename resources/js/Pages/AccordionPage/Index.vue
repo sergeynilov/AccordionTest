@@ -52,7 +52,6 @@ export default defineComponent({
     props: {},
 
     components: {
-        // FrontendLayout,
     },
 
     setup(props) {
@@ -60,7 +59,7 @@ export default defineComponent({
 
         function loadActiveCmsItemsData() {
 
-            axios.get(route('admin.accordion.load_active_cms_items'))
+            axios.get(route('manager.accordion.load_active_cms_items'))
                 .then(({data}) => {
                     activeCmsItems.value = data.data
                 })
@@ -98,11 +97,3 @@ export default defineComponent({
 
 })
 </script>
-
-<style>
-
-.img_preview_wrapper {
-    @apply border-2 border-gray-400 rounded-lg md:max-w-md xl:max-w-xl h-auto;
-}
-
-</style>

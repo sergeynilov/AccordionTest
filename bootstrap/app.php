@@ -44,60 +44,53 @@ $app->singleton(
 
 
 
-if ( ! defined("HTTP_RESPONSE_OK")) {
+if (!defined("HTTP_RESPONSE_OK")) {
     define("HTTP_RESPONSE_OK", 200);
 }
-if ( ! defined("HTTP_RESPONSE_OK_RESOURCE_CREATED")) {
+if (!defined("HTTP_RESPONSE_OK_RESOURCE_CREATED")) {
     define("HTTP_RESPONSE_OK_RESOURCE_CREATED", 201);
 }
-if ( ! defined("HTTP_RESPONSE_OK_RESOURCE_DELETED")) {
+if (!defined("HTTP_RESPONSE_OK_RESOURCE_DELETED")) {
     define("HTTP_RESPONSE_OK_RESOURCE_DELETED", 204);
 }
-if ( ! defined("HTTP_RESPONSE_OK_RESOURCE_UPDATED")) {
+if (!defined("HTTP_RESPONSE_OK_RESOURCE_UPDATED")) {
     define("HTTP_RESPONSE_OK_RESOURCE_UPDATED", 205);
 }
-if ( ! defined("HTTP_RESPONSE_BAD_REQUEST")) {
+if (!defined("HTTP_RESPONSE_BAD_REQUEST")) {
     define("HTTP_RESPONSE_BAD_REQUEST", 400);
 }
-if ( ! defined("HTTP_RESPONSE_NOT_FOUND")) {
+if (!defined("HTTP_RESPONSE_NOT_FOUND")) {
     define("HTTP_RESPONSE_NOT_FOUND", 404);
 }
 
-if ( ! defined("HTTP_RESPONSE_UNAUTHORIZED")) {
+if (!defined("HTTP_RESPONSE_UNAUTHORIZED")) {
     define("HTTP_RESPONSE_UNAUTHORIZED", 401);
 }
-if ( ! defined("HTTP_RESPONSE_SERVICE_FORBIDDEN")) {
+if (!defined("HTTP_RESPONSE_SERVICE_FORBIDDEN")) {
     define("HTTP_RESPONSE_SERVICE_FORBIDDEN", 403);
 }
-if ( ! defined("HTTP_RESPONSE_INTERNAL_SERVER_ERROR")) {
+if (!defined("HTTP_RESPONSE_INTERNAL_SERVER_ERROR")) {
     define("HTTP_RESPONSE_INTERNAL_SERVER_ERROR", 500);
 }
-if ( ! defined("HTTP_RESPONSE_NOT_IMPLEMENTED")) {
+if (!defined("HTTP_RESPONSE_NOT_IMPLEMENTED")) {
     define("HTTP_RESPONSE_NOT_IMPLEMENTED", 501);
 }
 
-if ( ! defined("ACCESS_APP_ADMIN")) {  // can do all
-    define("ACCESS_APP_ADMIN", 1);  // Admin
+if (!defined("ACCESS_MANAGER")) {
+    define("ACCESS_MANAGER", 1);  // Manager
 }
-if ( ! defined("ACCESS_APP_ADMIN_LABEL")) {
-    define("ACCESS_APP_ADMIN_LABEL", 'Admin');
-}
-
-
-if ( ! defined("ACCESS_APP_SUPPORT_MANAGER")) {  // Support Manager - answer on contact us pages
-    define("ACCESS_APP_SUPPORT_MANAGER", 2);
-}
-if ( ! defined("ACCESS_APP_SUPPORT_MANAGER_LABEL")) {
-    define("ACCESS_APP_SUPPORT_MANAGER_LABEL", 'Support Manager');
+if (!defined("ACCESS_MANAGER_LABEL")) {
+    define("ACCESS_MANAGER_LABEL", 'Manager');
 }
 
 
-if ( ! defined("ACCESS_APP_CONTENT_EDITOR")) {  // Content Editor - can  edit news/cms
-    define("ACCESS_APP_CONTENT_EDITOR", 3);
+if (!defined("ACCESS_CLIENT")) {
+    define("ACCESS_CLIENT", 2);
 }
-if ( ! defined("ACCESS_APP_CONTENT_EDITOR_LABEL")) {
-    define("ACCESS_APP_CONTENT_EDITOR_LABEL", 'Content Editor');
+if (!defined("ACCESS_CLIENT_LABEL")) {
+    define("ACCESS_CLIENT_LABEL", 'Client');
 }
+
 
 /*
 |--------------------------------------------------------------------------

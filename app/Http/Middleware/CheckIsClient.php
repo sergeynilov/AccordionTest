@@ -5,10 +5,10 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckIsAdmin
+class CheckIsClient
 {
     /**
-     * Handle an incoming request.
+     * Handle an incoming request and checks in logged user has client access.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
@@ -17,11 +17,11 @@ class CheckIsAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        if ( !auth()->user() ) {
+        if (!auth()->user()) {
             return redirect('/')->with('error','You are not logged');
         }
-        if ( !auth()->user()->can(ACCESS_APP_ADMIN_LABEL) ) {
-            return redirect('/')->with('error','You have not admin access');
+        if (!auth()->user()->can(ACCESS_CLIENT_LABEL)) {
+            return redirect('/')->with('error','You have no client access');
         }
         return $next($request);
     }

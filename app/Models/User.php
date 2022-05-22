@@ -62,17 +62,33 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    /**
+     * returns related CMS items(by author_id field in CMSItem model)
+     */
+    public function CMSItems()
+    {
+        return $this->hasMany('App\Models\CMSItem', 'author_id', 'id');
+    }
+
+    /**
+     * returns related claims(by author_id field in  model)
+     */
+    public function claims()
+    {
+        return $this->hasMany('App\Models\by author_id field in ', 'author_id', 'id');
+    }
+
     public static function getUserValidationRulesArray($user_id, array $skipFieldsArray = []): array
     {
         $validationRulesArray = [
             'name'       => 'required|max:255|min:2|unique:' . with(new User)->getTable(),
             'email'      => 'required|email|max:255|unique:' . with(new User)->getTable(),
             'password'   => 'required|min:8|max:15',
-            'password_2' => 'required|min:8|max:15|same:password',
+            'password_confirmation' => 'required|min:8|max:15|same:password',
         ];
 
         foreach ($skipFieldsArray as $next_field) {
-            if ( ! empty($validationRulesArray[$next_field])) {
+            if (!empty($validationRulesArray[$next_field])) {
                 unset($validationRulesArray[$next_field]);
             }
         }

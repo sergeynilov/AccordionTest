@@ -15,12 +15,6 @@ class cmsItemWithInitData extends Seeder
     {
         \DB::table('cms_items')->delete();
 
-/*        $table->string('title', 255);
-        $table->string('key', 255)->unique();
-        $table->mediumText('text');
-        $table->foreignId('author_id')->references('id')->on('users')->onDelete('CASCADE');
-        $table->boolean('published')->default(false);*/
-
         \DB::table('cms_items')->insert(array(
             0 =>
                 array(
@@ -37,7 +31,7 @@ class cmsItemWithInitData extends Seeder
                     'title' => 'Main page Top Header',
                     'key'   => 'main_page_top_header_block',
                     'text'  => 'Main page top header block lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
-                    'author_id'=> 4,
+                    'author_id'=> 3,
                     'published'=> true,
                 ),
             2 =>
@@ -46,7 +40,7 @@ class cmsItemWithInitData extends Seeder
                     'title' => 'Trusted sources',
                     'key'   => 'trusted_sources_block_header',
                     'text'  => 'Currency data delivered are sourced from financial data providers and banks, including the European Central Bank. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                    'author_id'=> 4,
+                    'author_id'=> 2,
                     'published'=> true,
                 ),
             3 =>

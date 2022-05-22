@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.img_preview_wrapper {
+    @apply border-2 border-gray-400 rounded-lg md:max-w-md xl:max-w-xl h-auto;
+}

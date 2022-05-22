@@ -7,12 +7,6 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use DB;
-
-//use Laravel\Fortify\Contracts\CreatesNewUsers;
-use App\Actions\Fortify\CreatesNewUsers;
-
-// /_wwwroot/lar/BiCurrencies/resources/fortify/CreatesNewUsers.php
-use Laravel\Jetstream\Jetstream;
 use Spatie\Permission\Models\Permission;
 
 class CreateNewUser implements CreatesNewUsers
@@ -23,6 +17,8 @@ class CreateNewUser implements CreatesNewUsers
      * Validate and create a newly registered user.
      *
      * @param array $input
+     * @param bool $make_validation - checks if validation must be done before user creation
+     * @param array $hasPermissions - access given to the user. ACCESS_MANAGER_LABEL, ACCESS_CLIENT_LABEL
      *
      * @return \App\Models\User
      */
@@ -31,7 +27,7 @@ class CreateNewUser implements CreatesNewUsers
         if ($make_validation) {
             $userValidationRulesArray = User::getUserValidationRulesArray(null,  []);
             if (\App::runningInConsole()) {
-                unset($userValidationRulesArray['password_2']);
+                unset($userValidationRulesArray['password_confirmation']);
             }
 
             $validator = Validator::make($input, $userValidationRulesArray);//->validate();
